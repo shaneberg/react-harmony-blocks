@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import BlockSVGRenderer from './BlockRendererSVG';
 import { Spring } from 'react-spring/renderprops';
 import BlockContainer from './BlockContainer';
 
