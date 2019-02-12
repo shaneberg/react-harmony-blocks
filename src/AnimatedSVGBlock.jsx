@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import BlockSVGRenderer from './BlockRendererSVG';
+// import BlockSVGRenderer from './BlockRendererSVG';
 import { Spring } from 'react-spring/renderprops';
+import BlockContainer from './BlockContainer';
 
 class AnimatedSVGBlock extends Component {
 
@@ -9,25 +10,18 @@ class AnimatedSVGBlock extends Component {
   }
 
   render() {
-    const hz = this.props.hz > 0 ? this.props.hz : 1;  // default to 1
-    const duration = (1/hz);
+    // const hz = this.props.hz > 0 ? this.props.hz : 1;  // default to 1
+    const duration = 1000;
     const init = this.state && this.state.reset;
-    const to = {
-      red: init ? 0.8 : 0.2,
-      green: init ? 0.8 : 0.2,
-      blue: init ? 0.8 : 1.0,
-      indicatorXOffset: init ? 0 : 100,
-    };
 
     return (
       <Spring
         immediate={init}
-        to={to}
+        to={{
+          progress: init ? 0.0 : 1.0,
+        }}
         from={{
-          red: 0.4,
-          green: 0.4,
-          blue: 0.4,
-          indicatorXOffset: 0,
+          progress: 0.0,
         }}
         config={{
           duration: duration,
@@ -37,16 +31,18 @@ class AnimatedSVGBlock extends Component {
       >
         {(animatedProperties) => {
           const props = {
-            x: 10,
-            y: 10 + (this.props.pos * 20),
-            width: 100,
-            height: 20,
-            indicatorYOffset: 10,
-            indicatorHeight: 20,
+            fromRed: 0.8,
+            toRed: 1.0,
+            fromBlue: 0.8,
+            toBlue: 0.0,
+            fromGreen: 0.8,
+            toGreen: 0.0,
+            pos: this.props.pos,
             ...animatedProperties,
           };
 
-          return <BlockSVGRenderer {...props} />;
+          return <BlockContainer {...props} />;
+          // return <BlockSVGRenderer {...props} />;
         }}
       </Spring>
     );
