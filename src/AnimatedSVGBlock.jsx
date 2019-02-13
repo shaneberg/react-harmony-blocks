@@ -33,9 +33,9 @@ class AnimatedSVGBlock extends Component {
               fromRed: 0.8,
               toRed: 1.0,
               fromBlue: 0.8,
-              toBlue: 0.0,
+              toBlue: 0.2,
               fromGreen: 0.8,
-              toGreen: 0.0,
+              toGreen: 0.3,
               pos: 0,
               progress: animatedProperties.progress * 3,
             }, {
