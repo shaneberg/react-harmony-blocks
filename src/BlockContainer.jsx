@@ -9,20 +9,26 @@ class BlockContainer extends Component {
   }
 
   render() {
-    return (
-      <BlockRendererSVG
-        x={10}
-        y={10 + this.props.pos * 20}
-        width={100}
-        height={20}
-        indicatorYOffset={10}
-        indicatorHeight={10}
-        indicatorXOffset={100 * this.props.progress}
-        red={this.lerp(this.props.fromRed, this.props.toRed, this.props.progress)}
-        green={this.lerp(this.props.fromGreen, this.props.toGreen, this.props.progress)}
-        blue={this.lerp(this.props.fromBlue, this.props.toBlue, this.props.progress)}
-      />
-    );
+    const blocks = this.props.blocks.map((block, index) => {
+    const progress = block.progress % 1.0;
+      return (
+        <BlockRendererSVG
+          key={index}
+          x={10}
+          y={10 + block.pos * 20}
+          width={100}
+          height={20}
+          indicatorYOffset={10}
+          indicatorHeight={10}
+          indicatorXOffset={100 * progress}
+          red={this.lerp(block.fromRed, block.toRed, progress)}
+          green={this.lerp(block.fromGreen, block.toGreen, progress)}
+          blue={this.lerp(block.fromBlue, block.toBlue, progress)}
+        />
+      );
+    });
+
+    return ( <g>{ blocks }</g> );
   }
 }
 
