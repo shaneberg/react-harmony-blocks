@@ -4,12 +4,39 @@ import BlockContainer from './BlockContainer';
 
 class AnimatedSVGBlock extends Component {
 
+  colorForIndex(index) {
+
+    const table = [
+      {
+        red: 0.8,
+        green: 0,
+        blue: 0,
+      },
+      {
+        red: 0.3,
+        green: 0.3,
+        blue: 0.8,
+      },
+      {
+        red: 0,
+        green: 0.6,
+        blue: 0,
+      },
+      {
+        red: 0.7,
+        green: 0,
+        blue: 0.7,
+      },
+    ];
+    return table[index % table.length];
+  }
+
   onRest() {
     this.setState({ reset: !(this.state && this.state.reset) });
   }
 
   render() {
-    const duration = 2000;
+    const duration = 3000;
     const init = this.state && this.state.reset;
 
     return (
@@ -28,29 +55,21 @@ class AnimatedSVGBlock extends Component {
         onRest={this.onRest.bind(this)}
       >
         {(animatedProperties) => {
-          const props = {
-            blocks: [{
-              fromRed: 0.8,
-              toRed: 1.0,
-              fromBlue: 0.8,
-              toBlue: 0.2,
-              fromGreen: 0.8,
-              toGreen: 0.3,
-              pos: 0,
-              progress: animatedProperties.progress * 3,
-            }, {
-              fromRed: 0.8,
-              toRed: 0.0,
-              fromBlue: 0.8,
-              toBlue: 0.0,
-              fromGreen: 0.8,
-              toGreen: 0.9,
-              pos: 1,
-              progress: animatedProperties.progress * 2,
-            },
-            ],
-          };
+          const blocks = this.props.hz.map((relativeHz, index) => {
+            const color = this.colorForIndex(index);
+            return {
+              fromRed: 1.0,
+              toRed: color.red,
+              fromGreen: 1.0,
+              toGreen: color.green,
+              fromBlue: 1.0,
+              toBlue: color.blue,
+              pos: index,
+              progress: animatedProperties.progress * relativeHz,
+            };
 
+          });
+          const props = { blocks };
           return <BlockContainer {...props} />;
         }}
       </Spring>
