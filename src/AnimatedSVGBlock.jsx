@@ -9,8 +9,7 @@ class AnimatedSVGBlock extends Component {
   }
 
   render() {
-    // const hz = this.props.hz > 0 ? this.props.hz : 1;  // default to 1
-    const duration = 1000;
+    const duration = 2000;
     const init = this.state && this.state.reset;
 
     return (
@@ -30,18 +29,29 @@ class AnimatedSVGBlock extends Component {
       >
         {(animatedProperties) => {
           const props = {
-            fromRed: 0.8,
-            toRed: 1.0,
-            fromBlue: 0.8,
-            toBlue: 0.0,
-            fromGreen: 0.8,
-            toGreen: 0.0,
-            pos: this.props.pos,
-            ...animatedProperties,
+            blocks: [{
+              fromRed: 0.8,
+              toRed: 1.0,
+              fromBlue: 0.8,
+              toBlue: 0.0,
+              fromGreen: 0.8,
+              toGreen: 0.0,
+              pos: 0,
+              progress: animatedProperties.progress * 3,
+            }, {
+              fromRed: 0.8,
+              toRed: 0.0,
+              fromBlue: 0.8,
+              toBlue: 0.0,
+              fromGreen: 0.8,
+              toGreen: 0.9,
+              pos: 1,
+              progress: animatedProperties.progress * 2,
+            },
+            ],
           };
 
           return <BlockContainer {...props} />;
-          // return <BlockSVGRenderer {...props} />;
         }}
       </Spring>
     );
