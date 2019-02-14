@@ -10,18 +10,14 @@ class App extends Component {
           Harmony Blocks
         </header>
         <div className="svg-container" style={{ border: "black", margin: "10px" }}>
-          5/4
           <svg x={10} y={10} height={200} width={200}>
-            <AnimatedSVGBlock hz={[5, 4]} />
+            <AnimatedSVGBlock hz={[5, 4, 8]} />
           </svg>
-
-          4/3
           <svg x={10} y={10} height={200} width={200}>
-            <AnimatedSVGBlock hz={[4, 3]} />
+            <AnimatedSVGBlock hz={[4, 3, 6]} />
           </svg>
-          1/2
           <svg x={10} y={10} height={200} width={200}>
-            <AnimatedSVGBlock hz={[2, 4]} />
+            <AnimatedSVGBlock hz={[2, 4, 1]} />
           </svg>
         </div>
       </div>
