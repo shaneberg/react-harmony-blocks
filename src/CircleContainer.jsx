@@ -16,8 +16,8 @@ class CircleContainer extends Component {
           key={index}
           x={50}
           y={250}
-          width={20}
-          height={15}
+          width={10}
+          height={5}
           rotation={360 * progress}
           red={this.lerp(block.fromRed, block.toRed, progress)}
           green={this.lerp(block.fromGreen, block.toGreen, progress)}
