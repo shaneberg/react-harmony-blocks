@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Spring } from 'react-spring/renderprops';
 import BlockContainer from './BlockContainer';
 import ClockContainer from './ClockContainer';
+import CircleContainer from './CircleContainer';
 
 class AnimatedSVGBlock extends Component {
 
@@ -75,6 +76,7 @@ class AnimatedSVGBlock extends Component {
             <g>
               <BlockContainer {...props} />
               <ClockContainer {...props} />
+              <CircleContainer {...props} />
             </g>
           );
 
