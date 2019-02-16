@@ -19,6 +19,16 @@ class App extends Component {
           <svg x={500} y={10} height={500} width={200}>
             <AnimatedSVGBlock hz={[8, 4]} />
           </svg>
+
+          <svg x={0} y={500} height={500} width={200}>
+            <AnimatedSVGBlock hz={[5, 4, 2]} />
+          </svg>
+          <svg x={250} y={500} height={500} width={200}>
+            <AnimatedSVGBlock hz={[3, 4, 2]} />
+          </svg>
+          <svg x={500} y={500} height={500} width={200}>
+            <AnimatedSVGBlock hz={[8, 4, 2]} />
+          </svg>
         </div>
       </div>
     );

@@ -10,21 +10,19 @@ class ClockRendererSVG extends Component {
       this.props.blue
     );
 
-    // Lower left
-    const x1 = this.props.x;
-    const y1 = this.props.y + this.props.height;
+    const bottom = this.props.y + this.props.height;
+    const top = this.props.y
 
-    // Middle
-    const x3 = x1 + (this.props.width / 2);
-    const y3 = this.props.y
+    const middleX = this.props.x + (this.props.width / 2);
+    const middleY = top + (this.props.height / 2);
 
-    const transform = `rotate(${this.props.rotation}, ${x3}, ${y1})`;
+    const transform = `rotate(${this.props.rotation}, ${middleX}, ${bottom})`;
 
     return (
       <g transform={transform}>
         <circle
-          cx={x3}
-          cy={y3}
+          cx={middleX}
+          cy={middleY}
           r={this.props.width}
           fill={colorString}
           stroke="black"

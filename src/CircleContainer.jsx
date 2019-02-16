@@ -13,7 +13,7 @@ class CircleContainer extends Component {
           x={50}
           y={250}
           width={10}
-          height={5}
+          height={15}
           rotation={360 * progress}
           red={Utils.lerp(block.fromRed, block.toRed, progress)}
           green={Utils.lerp(block.fromGreen, block.toGreen, progress)}
