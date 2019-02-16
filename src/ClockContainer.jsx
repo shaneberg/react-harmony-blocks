@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import ClockRendererSVG from './ClockRendererSVG';
+import Utils from './Utils';
 
 class ClockContainer extends Component {
-
-  lerp(from, to, t) {
-    const lerp = t * (to - from) + from;
-    return lerp;
-  }
 
   render() {
     const blocks = this.props.blocks.map((block, index) => {
@@ -19,9 +15,9 @@ class ClockContainer extends Component {
           width={10}
           height={50}
           rotation={360 * progress}
-          red={this.lerp(block.fromRed, block.toRed, progress)}
-          green={this.lerp(block.fromGreen, block.toGreen, progress)}
-          blue={this.lerp(block.fromBlue, block.toBlue, progress)}
+          red={Utils.lerp(block.fromRed, block.toRed, progress)}
+          green={Utils.lerp(block.fromGreen, block.toGreen, progress)}
+          blue={Utils.lerp(block.fromBlue, block.toBlue, progress)}
         />
       );
     });
