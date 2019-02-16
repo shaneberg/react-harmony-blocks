@@ -1,23 +1,11 @@
 import React, { Component } from 'react';
+import Utils from './Utils';
 
 class ClockRendererSVG extends Component {
 
-  // Each value are from 0.0 to 1.0
-  getHexForFloats(red, green, blue) {
-    let color = "#";
-    let redVal = Math.round(red * 255);
-    let greenVal = Math.round(green * 255);
-    let blueVal = Math.round(blue * 255);
-
-    color += redVal.toString(16).padStart(2, 0);
-    color += greenVal.toString(16).padStart(2, 0);
-    color += blueVal.toString(16).padStart(2, 0);
-    return color;
-  }
-
   render() {
 
-    const colorString = this.getHexForFloats(
+    const colorString = Utils.getHexForFloats(
       this.props.red,
       this.props.green,
       this.props.blue

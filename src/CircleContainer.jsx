@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import CircleRendererSVG from './CircleRendererSVG';
+import Utils from './Utils';
 
 class CircleContainer extends Component {
-
-  lerp(from, to, t) {
-    const lerp = t * (to - from) + from;
-    return lerp;
-  }
 
   render() {
     const blocks = this.props.blocks.map((block, index) => {
@@ -17,11 +13,11 @@ class CircleContainer extends Component {
           x={50}
           y={250}
           width={10}
-          height={5}
+          height={15}
           rotation={360 * progress}
-          red={this.lerp(block.fromRed, block.toRed, progress)}
-          green={this.lerp(block.fromGreen, block.toGreen, progress)}
-          blue={this.lerp(block.fromBlue, block.toBlue, progress)}
+          red={Utils.lerp(block.fromRed, block.toRed, progress)}
+          green={Utils.lerp(block.fromGreen, block.toGreen, progress)}
+          blue={Utils.lerp(block.fromBlue, block.toBlue, progress)}
         />
       );
     });

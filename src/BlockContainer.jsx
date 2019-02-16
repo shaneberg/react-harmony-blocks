@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import BlockRendererSVG from './BlockRendererSVG';
+import Utils from './Utils';
 
 class BlockContainer extends Component {
-
-  lerp(from, to, t) {
-    const lerp = t * (to - from) + from;
-    return lerp;
-  }
 
   render() {
     const blocks = this.props.blocks.map((block, index) => {
@@ -21,9 +17,9 @@ class BlockContainer extends Component {
           indicatorYOffset={10}
           indicatorHeight={10}
           indicatorXOffset={100 * progress}
-          red={this.lerp(block.fromRed, block.toRed, progress)}
-          green={this.lerp(block.fromGreen, block.toGreen, progress)}
-          blue={this.lerp(block.fromBlue, block.toBlue, progress)}
+          red={Utils.lerp(block.fromRed, block.toRed, progress)}
+          green={Utils.lerp(block.fromGreen, block.toGreen, progress)}
+          blue={Utils.lerp(block.fromBlue, block.toBlue, progress)}
         />
       );
     });
