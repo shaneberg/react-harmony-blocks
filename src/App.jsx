@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import AnimatedSVGBlock from './AnimatedSVGBlock';
 import './App.css';
+import Vex from 'vexflow';
+
 
 class App extends Component {
   render() {
+    const VF = Vex.Flow;
     return (
       <div className="App" >
         <header className="App-header">
