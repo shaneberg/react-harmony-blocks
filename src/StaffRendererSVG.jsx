@@ -25,13 +25,7 @@ class StaffRendererSVG extends Component {
   render() {
 
     let svg = this.state ? this.state.svg : null;
-    // svgContainer.style.height = Math.max(100, bb.h + padding) + "px";
-    // svgContainer.style.width = 100 + "px";
-    // svgContainer.style.position = "relative";
-    // svgContainer.style.display = "inlineBlock";
     const bb = this.state ? this.state.bb : null;
-    // const padding = 10;
-    // const half = padding / 2;
     const x = bb ? bb.x : 0;
     const y = bb ? bb.y : 0;
     const top = y;
