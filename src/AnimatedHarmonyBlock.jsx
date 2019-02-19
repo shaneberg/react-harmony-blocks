@@ -6,10 +6,15 @@ import CircleContainer from './CircleContainer';
 import StaffRendererSVG from './StaffRendererSVG';
 
 class AnimatedHarmonyBlock extends Component {
+  constructor(props) {
+    super(props);
+    this.table = AnimatedHarmonyBlock.getColorTable();
+  }
 
-  colorForIndex(index) {
+ 
 
-    const table = [
+  static getColorTable() {
+    return [
       {
         red: 0.8,
         green: 0,
@@ -31,7 +36,10 @@ class AnimatedHarmonyBlock extends Component {
         blue: 0.7,
       },
     ];
-    return table[index % table.length];
+  }
+
+  colorForIndex(index) {
+    return this.table[index % this.table.length];
   }
 
   onRest() {
@@ -98,7 +106,8 @@ class AnimatedHarmonyBlock extends Component {
             null;
 
           const props = { blocks };
-          const container = this.getContainerForType(this.props.type, props);
+          const type = this.props.type ? this.props.type : "block";
+          const container = this.getContainerForType(type, props);
 
           return (
             <div className="blocks-container">
