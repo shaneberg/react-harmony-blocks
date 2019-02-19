@@ -3,8 +3,9 @@ import { Spring } from 'react-spring/renderprops';
 import BlockContainer from './BlockContainer';
 import ClockContainer from './ClockContainer';
 import CircleContainer from './CircleContainer';
+import StaffRendererSVG from './StaffRendererSVG';
 
-class AnimatedSVGBlock extends Component {
+class AnimatedHarmonyBlock extends Component {
 
   colorForIndex(index) {
 
@@ -35,6 +36,24 @@ class AnimatedSVGBlock extends Component {
 
   onRest() {
     this.setState({ reset: !(this.state && this.state.reset) });
+  }
+
+  getContainerForType(type, props) {
+    let container = null;
+    switch (type) {
+      case "block":
+        container = <BlockContainer {...props} />;
+        break;
+      case "clock":
+        container = <ClockContainer {...props} />;
+        break;
+      case "circle":
+      default:
+        container = <CircleContainer {...props} />;
+        break;
+    }
+
+    return container;
   }
 
   render() {
@@ -71,19 +90,29 @@ class AnimatedSVGBlock extends Component {
             };
 
           });
-          const props = { blocks };
-          return (
-            <g>
-              <BlockContainer {...props} />
-              <ClockContainer {...props} />
-              <CircleContainer {...props} />
-            </g>
-          );
 
+          const chord = this.props.chord;
+          const title = this.props.title;
+          const staff = this.props.chord ?
+            <StaffRendererSVG title={title} chord={chord} /> :
+            null;
+
+          const props = { blocks };
+          const container = this.getContainerForType(this.props.type, props);
+
+          return (
+            <div className="blocks-container">
+              {title}
+              <svg>
+                {staff}
+                {container}
+              </svg>
+            </div>
+          );
         }}
       </Spring>
     );
   }
 }
 
-export default AnimatedSVGBlock;
+export default AnimatedHarmonyBlock;

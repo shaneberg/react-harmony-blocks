@@ -11,9 +11,9 @@ class ClockContainer extends Component {
         <ClockRendererSVG
           key={index}
           x={50}
-          y={100}
+          y={0}
           width={10}
-          height={50}
+          height={30}
           rotation={360 * progress}
           red={Utils.lerp(block.fromRed, block.toRed, progress)}
           green={Utils.lerp(block.fromGreen, block.toGreen, progress)}

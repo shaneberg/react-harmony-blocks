@@ -12,8 +12,8 @@ class ClockRendererSVG extends Component {
     );
 
     // Lower left
-    const x1 = this.props.x;
-    const y1 = this.props.y + this.props.height;
+    const x1 = this.props.x ? this.props.x : 0;
+    const y1 = (this.props.y ? this.props.y : 0) + this.props.height;
 
     // Lower right
     const x2 = x1 + this.props.width;
@@ -21,7 +21,7 @@ class ClockRendererSVG extends Component {
 
     // Top
     const x3 = x1 + (this.props.width / 2);
-    const y3 = this.props.y
+    const y3 = this.props.y ? this.props.y : 0;
 
     const points = `${x1},${y1} ${x2},${y2} ${x3},${y3}`;
     const transform = `rotate(${this.props.rotation}, ${x3}, ${y1})`;
