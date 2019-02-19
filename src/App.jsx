@@ -57,7 +57,7 @@ class App extends Component {
 
           <div className="blocks-container">
             Perfect 5th
-            <AnimatedHarmonyBlock chord={chordP5} type="circle" hz={[6, 4]} />
+            <AnimatedHarmonyBlock chord={chordP5} type="block" hz={[6, 4]} />
           </div>
 
           <div className="blocks-container">
