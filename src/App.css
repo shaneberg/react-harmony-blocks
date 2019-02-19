@@ -22,6 +22,11 @@
   color: #61dafb;
 }
 
+.blocks-container {
+  border: 1px dotted;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

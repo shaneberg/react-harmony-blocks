@@ -8,36 +8,59 @@ const VF = Vex.Flow;
 
 class App extends Component {
   render() {
-    const chord1 = [new VF.StaveNote({
-      keys: ["c/0", "e/4", "g#/8"],
-      duration: "w",
-  }).addAccidental(0, new VF.Accidental("bb")).addAccidental(2, new VF.Accidental("#"))];
+    const chordM3 = [new VF.StaveNote({
+      keys: ["c/4", "e/4"],
+      duration: "h",
+    })];
+
+    const chordP4 = [new VF.StaveNote({
+      keys: ["c/4", "f/4"],
+      duration: "h",
+    })];
+
+    const chordP5 = [new VF.StaveNote({
+      keys: ["c/4", "g/4"],
+      duration: "h",
+    })];
+
+    const chordP8 = [new VF.StaveNote({
+      keys: ["c/4", "c/5"],
+      duration: "h",
+    })];
+
     return (
       <div className="App" >
         <header className="App-header">
           Harmony Blocks
         </header>
-        <div className="svg-container" style={{ border: "black", margin: "10px" }}>
-          <StaffRendererSVG chord={chord1}/>
-          <svg x={0} y={10} height={500} width={200}>
-            <AnimatedSVGBlock hz={[5, 4]} />
-          </svg>
-          <svg x={250} y={10} height={500} width={200}>
-            <AnimatedSVGBlock hz={[3, 4]} />
-          </svg>
-          <svg x={500} y={10} height={500} width={200}>
-            <AnimatedSVGBlock hz={[8, 4]} />
-          </svg>
+        <div className="svg-container" style={{ border: "black", margin: "auto", display: "block" }}>
+          <div className="blocks-container">
+            <StaffRendererSVG title="Major 3rd" chord={chordM3} />
+            <svg height={300} width={120} margin="10px">
+              <AnimatedSVGBlock hz={[5, 4]} />
+            </svg>
+          </div>
 
-          <svg x={0} y={500} height={500} width={200}>
-            <AnimatedSVGBlock hz={[5, 4, 2]} />
-          </svg>
-          <svg x={250} y={500} height={500} width={200}>
-            <AnimatedSVGBlock hz={[3, 4, 2]} />
-          </svg>
-          <svg x={500} y={500} height={500} width={200}>
-            <AnimatedSVGBlock hz={[8, 4, 2]} />
-          </svg>
+          <div className="blocks-container">
+            <StaffRendererSVG title="Perfect 4th" chord={chordP4} />
+            <svg height={300} width={120}>
+              <AnimatedSVGBlock hz={[3, 4]} />
+            </svg>
+          </div>
+
+          <div className="blocks-container">
+            <StaffRendererSVG title="Perfect 5th" chord={chordP5} />
+            <svg height={300} width={120}>
+              <AnimatedSVGBlock hz={[6, 4]} />
+            </svg>
+          </div>
+
+          <div className="blocks-container">
+            <StaffRendererSVG title="Octave" chord={chordP8} />
+            <svg height={300} width={120}>
+              <AnimatedSVGBlock hz={[8, 4]} />
+            </svg>
+          </div>
         </div>
       </div>
     );

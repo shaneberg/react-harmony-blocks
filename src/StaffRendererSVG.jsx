@@ -32,12 +32,17 @@ class StaffRendererSVG extends Component {
   }
 
   render() {
-    return (<div ref="outer" style={{
-      border: "2px blue solid",
-      padding: 10,
-      borderRadius: 10,
-      display: "inline-block",
-    }} />);
+    return (
+      <div ref="outer" style={{
+        margin: "auto",
+        width: "100px",
+        padding: 10,
+        borderRadius: 10,
+        display: "inline-float"
+      }} >
+        {this.props.title}
+      </div>
+    );
 
   }
 }
