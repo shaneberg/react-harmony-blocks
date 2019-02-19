@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/react-harmony-blocks/precache-manifest.0601f49a57761b02c4ffae87d300122c.js"
+  "/react-harmony-blocks/precache-manifest.5675638f95b6b8de89f2796aeb3b6ed7.js"
 );
 
 workbox.clientsClaim();
