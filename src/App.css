@@ -23,8 +23,8 @@
 }
 
 .blocks-container {
-  border: 1px dotted;
-
+  border-bottom: 1px dotted;
+  margin-top: 20px;
 }
 
 @keyframes App-logo-spin {

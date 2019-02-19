@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import AnimatedSVGBlock from './AnimatedSVGBlock';
-import StaffRendererSVG from './StaffRendererSVG';
+import AnimatedHarmonyBlock from './AnimatedHarmonyBlock';
 import Vex from 'vexflow';
 import './App.css';
 
@@ -28,6 +27,8 @@ class App extends Component {
       duration: "h",
     })];
 
+    const height = 150;
+    const width = 120;
     return (
       <div className="App" >
         <header className="App-header">
@@ -35,31 +36,33 @@ class App extends Component {
         </header>
         <div className="svg-container" style={{ border: "black", margin: "auto", display: "block" }}>
           <div className="blocks-container">
-            <StaffRendererSVG title="Major 3rd" chord={chordM3} />
-            <svg height={300} width={120} margin="10px">
-              <AnimatedSVGBlock hz={[5, 4]} />
-            </svg>
+            Major 3rd
+            <AnimatedHarmonyBlock
+              height={height}
+              width={width}
+              chord={chordM3}
+              type="clock"
+              hz={[5, 4]}
+            />
           </div>
 
           <div className="blocks-container">
-            <StaffRendererSVG title="Perfect 4th" chord={chordP4} />
-            <svg height={300} width={120}>
-              <AnimatedSVGBlock hz={[3, 4]} />
-            </svg>
+            Perfect 4th
+            <AnimatedHarmonyBlock
+              chord={chordP4}
+              type="circle"
+              hz={[3, 4]}
+            />
           </div>
 
           <div className="blocks-container">
-            <StaffRendererSVG title="Perfect 5th" chord={chordP5} />
-            <svg height={300} width={120}>
-              <AnimatedSVGBlock hz={[6, 4]} />
-            </svg>
+            Perfect 5th
+            <AnimatedHarmonyBlock chord={chordP5} type="circle" hz={[6, 4]} />
           </div>
 
           <div className="blocks-container">
-            <StaffRendererSVG title="Octave" chord={chordP8} />
-            <svg height={300} width={120}>
-              <AnimatedSVGBlock hz={[8, 4]} />
-            </svg>
+            Octave
+            <AnimatedHarmonyBlock chord={chordP8} type="circle" hz={[8, 4]} />
           </div>
         </div>
       </div>

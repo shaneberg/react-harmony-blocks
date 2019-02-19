@@ -11,7 +11,7 @@ class CircleContainer extends Component {
         <CircleRendererSVG
           key={index}
           x={50}
-          y={250}
+          y={10}
           width={10}
           height={15}
           rotation={360 * progress}
