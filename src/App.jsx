@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import AnimatedHarmonyBlock from './AnimatedHarmonyBlock';
 import Vex from 'vexflow';
+import Select from 'react-select';
 import './App.css';
 
 const VF = Vex.Flow;
 
 class App extends Component {
+
+  static getVisualizationOptions() {
+    return [
+      { label: "Block", value: "block" },
+      { label: "Clock", value: "clock" },
+      { label: "Circle", value: "circle" },
+    ];
+
+  }
+
   render() {
     const chordM3 = [new VF.StaveNote({
       keys: ["c/4", "e/4"],
@@ -29,6 +40,7 @@ class App extends Component {
 
     const height = 150;
     const width = 120;
+    const options = App.getVisualizationOptions();
     return (
       <div className="App" >
         <header className="App-header">
@@ -41,28 +53,55 @@ class App extends Component {
               height={height}
               width={width}
               chord={chordM3}
-              type="clock"
+              type={this.state && this.state.major_third_type}
               hz={[5, 4]}
+            />
+            <Select options={options}
+              onChange={(option) => {
+                this.setState({ major_third_type: option.value });
+              }}
             />
           </div>
 
           <div className="blocks-container">
             Perfect 4th
+
+            <Select options={options}
+              onChange={(option) => {
+                this.setState({ perfect_fourth_type: option.value });
+              }}
+            />
             <AnimatedHarmonyBlock
               chord={chordP4}
-              type="circle"
+              type={this.state && this.state.perfect_fourth_type}
               hz={[3, 4]}
             />
           </div>
 
           <div className="blocks-container">
             Perfect 5th
-            <AnimatedHarmonyBlock chord={chordP5} type="block" hz={[6, 4]} />
+            <Select options={options}
+              onChange={(option) => {
+                this.setState({ perfect_fifth_type: option.value });
+              }}
+            />
+            <AnimatedHarmonyBlock
+              chord={chordP5}
+              type={this.state && this.state.perfect_fifth_type}
+              hz={[6, 4]} />
           </div>
 
           <div className="blocks-container">
             Octave
-            <AnimatedHarmonyBlock chord={chordP8} type="circle" hz={[8, 4]} />
+            <Select options={options}
+              onChange={(option) => {
+                this.setState({ octave_type: option.value });
+              }}
+            />
+            <AnimatedHarmonyBlock
+              chord={chordP8}
+              type={this.state && this.state.octave_type}
+              hz={[8, 4]} />
           </div>
         </div>
       </div>
