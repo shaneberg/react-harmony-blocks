@@ -6,6 +6,13 @@ import { Surface } from 'gl-react-dom'; // for React DOM
 class CircleContainer extends Component {
 
   render() {
+    /**
+     * TODO: Rework this so that:
+     * 1. SVG still works
+     * 2. A single shader can consumed the "blocks" data.
+     * Figure out a better design for this.
+     * Maybe this should have its own Container
+     */
     const blocks = this.props.blocks.map((block, index) => {
       const progress = block.progress % 1.0;
       return (
