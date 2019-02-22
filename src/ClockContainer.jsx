@@ -6,7 +6,7 @@ class ClockContainer extends Component {
 
   render() {
     const blocks = this.props.blocks.map((block, index) => {
-    const progress = block.progress % 1.0;
+      const progress = block.progress % 1.0;
       return (
         <ClockRendererSVG
           key={index}
@@ -22,7 +22,7 @@ class ClockContainer extends Component {
       );
     });
 
-    return ( <g>{ blocks }</g> );
+    return (<div>{blocks}</div>);
   }
 }
 

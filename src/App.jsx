@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AnimatedHarmonyBlock from './AnimatedHarmonyBlock';
 import Vex from 'vexflow';
 import Select from 'react-select';
+
 import './App.css';
 
 const VF = Vex.Flow;
@@ -53,10 +54,12 @@ class App extends Component {
               height={height}
               width={width}
               chord={chordM3}
-              type={this.state && this.state.major_third_type}
+              // type={this.state && this.state.major_third_type}
+              type={"circle"}
               hz={[5, 4]}
             />
             <Select options={options}
+              defaultValue={options[2]}
               onChange={(option) => {
                 this.setState({ major_third_type: option.value });
               }}
@@ -66,8 +69,11 @@ class App extends Component {
           <div className="blocks-container">
             Perfect 4th
 
-            <Select options={options}
+            <Select
+              options={options}
+              defaultValue={options[2]}
               onChange={(option) => {
+
                 this.setState({ perfect_fourth_type: option.value });
               }}
             />
@@ -81,6 +87,7 @@ class App extends Component {
           <div className="blocks-container">
             Perfect 5th
             <Select options={options}
+              defaultValue={options[2]}
               onChange={(option) => {
                 this.setState({ perfect_fifth_type: option.value });
               }}
@@ -94,6 +101,7 @@ class App extends Component {
           <div className="blocks-container">
             Octave
             <Select options={options}
+              defaultValue={options[2]}
               onChange={(option) => {
                 this.setState({ octave_type: option.value });
               }}

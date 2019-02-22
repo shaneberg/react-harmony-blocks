@@ -114,8 +114,8 @@ class AnimatedHarmonyBlock extends Component {
               {title}
               <svg>
                 {staff}
-                {container}
               </svg>
+                {container}
             </div>
           );
         }}

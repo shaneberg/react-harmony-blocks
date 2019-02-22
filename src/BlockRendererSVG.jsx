@@ -10,26 +10,27 @@ class BlockRendererSVG extends Component {
       this.props.blue
     );
 
-    return (
-      <g>
-        <rect
-          x={this.props.x}
-          y={this.props.y}
-          width={this.props.width}
-          height={this.props.height}
-          strokeWidth={1}
-          fill={colorString}
-          stroke="black"
-        />
-        <line
-          x1={this.props.x + this.props.indicatorXOffset}
-          y1={this.props.y}
-          x2={this.props.x + this.props.indicatorXOffset}
-          y2={this.props.y + this.props.height}
-          stroke="black"
-        />
-      </g>
-    );
+    return (<div></div>);
+    // return (
+    //   <g>
+    //     <rect
+    //       x={this.props.x}
+    //       y={this.props.y}
+    //       width={this.props.width}
+    //       height={this.props.height}
+    //       strokeWidth={1}
+    //       fill={colorString}
+    //       stroke="black"
+    //     />
+    //     <line
+    //       x1={this.props.x + this.props.indicatorXOffset}
+    //       y1={this.props.y}
+    //       x2={this.props.x + this.props.indicatorXOffset}
+    //       y2={this.props.y + this.props.height}
+    //       stroke="black"
+    //     />
+    //   </g>
+    // );
   }
 }
 
