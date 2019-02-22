@@ -13,6 +13,7 @@ class App extends Component {
       { label: "Block", value: "block" },
       { label: "Clock", value: "clock" },
       { label: "Circle", value: "circle" },
+      { label: "Circle GL", value: "circleGL" },
     ];
 
   }

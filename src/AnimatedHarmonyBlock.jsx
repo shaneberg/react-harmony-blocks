@@ -3,6 +3,7 @@ import { Spring } from 'react-spring/renderprops';
 import BlockContainer from './BlockContainer';
 import ClockContainer from './ClockContainer';
 import CircleContainer from './CircleContainer';
+import CircleGLContainer from './CircleGLContainer';
 import StaffRendererSVG from './StaffRendererSVG';
 
 class AnimatedHarmonyBlock extends Component {
@@ -10,8 +11,6 @@ class AnimatedHarmonyBlock extends Component {
     super(props);
     this.table = AnimatedHarmonyBlock.getColorTable();
   }
-
- 
 
   static getColorTable() {
     return [
@@ -56,8 +55,11 @@ class AnimatedHarmonyBlock extends Component {
         container = <ClockContainer {...props} />;
         break;
       case "circle":
-      default:
         container = <CircleContainer {...props} />;
+        break;
+      case "circleGL":
+      default:
+        container = <CircleGLContainer {...props} />;
         break;
     }
 
@@ -112,10 +114,8 @@ class AnimatedHarmonyBlock extends Component {
           return (
             <div className="blocks-container">
               {title}
-              <svg>
-                {staff}
-                {container}
-              </svg>
+              {staff}
+              {container}
             </div>
           );
         }}
