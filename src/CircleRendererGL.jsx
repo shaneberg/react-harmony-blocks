@@ -5,24 +5,19 @@ import { Surface } from 'gl-react-dom';
 const shaders = Shaders.create({
   helloBlue: {
     frag: GLSL`
+#define M_PI 3.14159265358979323846
+
 precision mediump float;
-varying vec2 uv;
-uniform vec2 u_resolution;
+const mat2 rotation = mat2( cos(M_PI/4.0), sin(M_PI/4.0),
+                           -sin(M_PI/4.0), cos(M_PI/4.0));
+void main(void)
+{
+    vec2 pos = mod(rotation * gl_FragCoord.xy, vec2(50.0)) - vec2(25.0);
+    float dist_squared = dot(pos, pos);
 
-float circle(in vec2 _st, in float _radius){
-  vec2 dist = _st-vec2(0.5);
-  return 1.-smoothstep(_radius-(_radius*0.01),
-                       _radius+(_radius*0.01),
-                       dot(dist,dist)*4.0);
-}
-
-void main() {
-  vec2 st = gl_FragCoord.xy/u_resolution.xy;
-
-	vec3 color = vec3(circle(st,0.3));
-
-	gl_FragColor = vec4( color, 1.0 );
-}
+     gl_FragColor = mix(vec4(.90, .90, .90, 1.0), vec4(.20, .20, .40, 1.0),
+                        smoothstep(380.25, 420.25, dist_squared));
+ }
 `
 
   }
@@ -33,7 +28,7 @@ class CircleRendererGL extends Component {
   render() {
     return (
       <Surface width={200} height={100}>
-        <Node shader={shaders.helloBlue} uniforms={{ u_resolution: [200, 200] }}/>
+        <Node shader={shaders.helloBlue} />
       </Surface>
     );
   }
