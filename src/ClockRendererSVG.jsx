@@ -27,13 +27,15 @@ class ClockRendererSVG extends Component {
     const transform = `rotate(${this.props.rotation}, ${x3}, ${y1})`;
 
     return (
-      <g transform={transform}>
-        <polygon
-          points={points}
-          fill={colorString}
-          stroke="black"
-        />
-      </g>
+      <svg>
+        <g transform={transform}>
+          <polygon
+            points={points}
+            fill={colorString}
+            stroke="black"
+          />
+        </g>
+      </svg>
     );
   }
 }

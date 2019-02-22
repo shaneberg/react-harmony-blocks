@@ -22,7 +22,7 @@ class ClockContainer extends Component {
       );
     });
 
-    return ( <g>{ blocks }</g> );
+    return ( <svg>{ blocks }</svg> );
   }
 }
 

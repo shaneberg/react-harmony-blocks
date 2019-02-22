@@ -19,15 +19,17 @@ class ClockRendererSVG extends Component {
     const transform = `rotate(${this.props.rotation}, ${middleX}, ${bottom})`;
 
     return (
-      <g transform={transform}>
-        <circle
-          cx={middleX}
-          cy={middleY}
-          r={this.props.width}
-          fill={colorString}
-          stroke="black"
-        />
-      </g>
+      <svg>
+        <g transform={transform}>
+          <circle
+            cx={middleX}
+            cy={middleY}
+            r={this.props.width}
+            fill={colorString}
+            stroke="black"
+          />
+        </g>
+      </svg>
     );
   }
 }
