@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Shaders, Node, GLSL } from 'gl-react';
 import { Surface } from 'gl-react-dom';
-import glsl from 'glslify';
-
+import shader from './Circle.glsl'
 
 class CircleRendererGL extends Component {
   componentDidMount() {
-    let shader = glsl('./Circle.glsl');
     this.setState({ shader: shader });
   }
 
