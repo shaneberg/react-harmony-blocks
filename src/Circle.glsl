@@ -1,6 +1,14 @@
+#ifdef GL_ES
 precision mediump float;
-varying vec2 uv;
+#endif
+
 uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+#define PI_TWO 1.570796326794897
+#define PI 3.141592653589793
+#define TWO_PI 6.283185307179586
 
 float circle(in vec2 _st,in float _radius){
   vec2 dist=_st-vec2(.5);
