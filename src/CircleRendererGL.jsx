@@ -18,10 +18,13 @@ class CircleRendererGL extends Component {
       });
 
       node =
-        <Surface width={200} height={100}>
+        <Surface width={100} height={100}>
           <Node
             shader={shaders.circle}
-            uniforms={{ u_resolution: [200, 200] }}
+            uniforms={{
+              u_resolution: [100, 100],
+              u_time: this.props.blocks[0].progress,
+            }}
           />
         </Surface>
     }

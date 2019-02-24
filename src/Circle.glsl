@@ -10,15 +10,27 @@ uniform float u_time;
 #define PI 3.141592653589793
 #define TWO_PI 6.283185307179586
 
-float circle(in vec2 _st,in float _radius){
-  vec2 dist=_st-vec2(.5);
-  return 1.-smoothstep(_radius-(_radius*.01),
-  _radius+(_radius*.01),
-  dot(dist,dist)*4.);
+mat2 rotate2D(in float _angle){
+  return mat2(cos(_angle),
+  -sin(_angle),
+  sin(_angle),
+  cos(_angle));
+}
+
+vec3 circle(in vec2 st,in float radius){
+  vec3 color=vec3(.2,.2,.9);
+  vec2 rxy=vec2(.5,.6);
+  vec2 cxy=vec2(.5,.5);
+  float speed = 10.0;
+  st=st-rxy;
+  st=rotate2D(-u_time * speed)*st;
+  st+=rxy;
+  float dist=distance(st,cxy);
+  return color-step(radius,dist);
 }
 
 void main(){
   vec2 st=gl_FragCoord.xy/u_resolution.xy;
-  vec3 color=vec3(circle(st,.3));
+  vec3 color=circle(st,.1);
   gl_FragColor=vec4(color,1.);
 }
