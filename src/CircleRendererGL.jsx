@@ -23,7 +23,8 @@ class CircleRendererGL extends Component {
             shader={shaders.circle}
             uniforms={{
               u_resolution: [100, 100],
-              u_time: this.props.blocks[0].progress,
+              u_frequencies: [this.props.blocks[0].progress,
+                              this.props.blocks[1].progress],
             }}
           />
         </Surface>
