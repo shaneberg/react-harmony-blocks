@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Utils from './Utils';
 
-class ClockRendererSVG extends Component {
+class CircleRendererSVG extends Component {
 
   render() {
     const colorString = Utils.getHexForFloats(
@@ -34,4 +34,4 @@ class ClockRendererSVG extends Component {
   }
 }
 
-export default ClockRendererSVG;
+export default CircleRendererSVG;
