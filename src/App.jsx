@@ -11,6 +11,7 @@ class App extends Component {
   static getVisualizationOptions() {
     return [
       { label: "Block", value: "block" },
+      { label: "Dots", value: "dots" },
       { label: "Clock", value: "clock" },
       { label: "Circle", value: "circle" },
       { label: "Circle GL", value: "circleGL" },
