@@ -5,6 +5,7 @@ import ClockContainer from './ClockContainer';
 import CircleContainer from './CircleContainer';
 import CircleGLContainer from './CircleGLContainer';
 import StaffRendererSVG from './StaffRendererSVG';
+import DotContainer from './DotContainer';
 
 class AnimatedHarmonyBlock extends Component {
   constructor(props) {
@@ -50,6 +51,9 @@ class AnimatedHarmonyBlock extends Component {
     switch (type) {
       case "block":
         container = <BlockContainer {...props} />;
+        break;
+      case "dots":
+        container = <DotContainer {...props} />;
         break;
       case "clock":
         container = <ClockContainer {...props} />;
@@ -97,6 +101,7 @@ class AnimatedHarmonyBlock extends Component {
               toBlue: color.blue,
               pos: index,
               progress: animatedProperties.progress * relativeHz,
+              hz: relativeHz,
             };
 
           });
