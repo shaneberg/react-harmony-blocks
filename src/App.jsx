@@ -46,7 +46,7 @@ class App extends Component {
     return (
       <div className="App" >
         <header className="App-header">
-          Harmony Rendering
+          Harmony Blocks
         </header>
         <div className="svg-container" style={{ border: "black", margin: "auto", display: "block" }}>
           <div className="blocks-container">
