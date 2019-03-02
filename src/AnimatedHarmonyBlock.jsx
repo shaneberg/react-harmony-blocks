@@ -113,11 +113,11 @@ class AnimatedHarmonyBlock extends Component {
             null;
 
           const props = { blocks };
-          const type = this.props.type ? this.props.type : "block";
+          const type = this.props.type ? this.props.type : "circle";
           const container = this.getContainerForType(type, props);
 
           return (
-            <div className="blocks-container">
+            <div>
               {title}
               {staff}
               {container}

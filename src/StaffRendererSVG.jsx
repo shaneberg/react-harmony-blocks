@@ -26,7 +26,7 @@ class StaffRendererSVG extends Component {
     const x = bb ? bb.x : 0;
     const y = bb ? bb.y : 0;
     const top = y;
-    const height = bb ? Math.max(200, bb.h) : 0;
+    const height = bb ? Math.max(100, bb.h) : 0;
     const left = "0px";
     const width = 100 + "px";
 

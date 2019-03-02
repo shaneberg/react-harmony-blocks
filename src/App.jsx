@@ -40,13 +40,13 @@ class App extends Component {
       duration: "h",
     })];
 
-    const height = 150;
+    const height = 100;
     const width = 120;
     const options = App.getVisualizationOptions();
     return (
       <div className="App" >
         <header className="App-header">
-          Harmony Blocks
+          Harmony Rendering
         </header>
         <div className="svg-container" style={{ border: "black", margin: "auto", display: "block" }}>
           <div className="blocks-container">
@@ -67,43 +67,42 @@ class App extends Component {
 
           <div className="blocks-container">
             Perfect 4th
-
-            <Select options={options}
-              onChange={(option) => {
-                this.setState({ perfect_fourth_type: option.value });
-              }}
-            />
             <AnimatedHarmonyBlock
               chord={chordP4}
               type={this.state && this.state.perfect_fourth_type}
               hz={[3, 4]}
             />
+            <Select options={options}
+              onChange={(option) => {
+                this.setState({ perfect_fourth_type: option.value });
+              }}
+            />
           </div>
 
           <div className="blocks-container">
             Perfect 5th
+            <AnimatedHarmonyBlock
+              chord={chordP5}
+              type={this.state && this.state.perfect_fifth_type}
+              hz={[6, 4]} />
             <Select options={options}
               onChange={(option) => {
                 this.setState({ perfect_fifth_type: option.value });
               }}
             />
-            <AnimatedHarmonyBlock
-              chord={chordP5}
-              type={this.state && this.state.perfect_fifth_type}
-              hz={[6, 4]} />
           </div>
 
           <div className="blocks-container">
             Octave
+            <AnimatedHarmonyBlock
+              chord={chordP8}
+              type={this.state && this.state.octave_type}
+              hz={[8, 4]} />
             <Select options={options}
               onChange={(option) => {
                 this.setState({ octave_type: option.value });
               }}
             />
-            <AnimatedHarmonyBlock
-              chord={chordP8}
-              type={this.state && this.state.octave_type}
-              hz={[8, 4]} />
           </div>
         </div>
       </div>

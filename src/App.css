@@ -24,7 +24,11 @@
 
 .blocks-container {
   border-bottom: 1px dotted;
-  margin-top: 20px;
+  margin-left: 30vh;
+  margin-right: 30vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  height: 30vh;
 }
 
 @keyframes App-logo-spin {
